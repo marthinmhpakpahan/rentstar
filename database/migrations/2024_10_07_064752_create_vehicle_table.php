@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('vehicle', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer("vehicle_category_id");
+            $table->integer("company_id");
+            $table->string("police_no");
+            $table->boolean("insurance");
+            $table->bigInteger("price");
+            $table->datetime('created_at');
+            $table->datetime('modified_at')->nullable();
         });
     }
 

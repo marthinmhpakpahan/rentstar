@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('order_status', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("name");
+            $table->text("description");
+            $table->datetime('created_at');
+            $table->datetime('modified_at')->nullable();
         });
     }
 
