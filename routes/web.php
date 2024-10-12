@@ -10,8 +10,9 @@ Route::get('/', function () {
 
 // Authentication
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
-Route::get('/register', [UserController::class, 'register'])->name('register')->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->name('login')->middleware('guest');
+Route::get('/register', [UserController::class, 'register'])->name('register')->middleware('guest');
+Route::post('/register', [UserController::class, 'create'])->name('register')->middleware('guest');
 Route::match(['get','post'],'/logout', [UserController::class, 'logout'])->name('logout');
 
 // Dashboard

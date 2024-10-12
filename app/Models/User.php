@@ -35,6 +35,8 @@ class User extends Authenticatable
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'modified_at';
 
+    public $timestamps = true;
+
     /**
      * The attributes that should be hidden for serialization.
      *
