@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('driver', function (Blueprint $table) {
             $table->id();
-            $table->integer("company_id");
             $table->string("name");
             $table->string("phone_no");
             $table->string("photo");
+            $table->string("driver_license");
+            $table->boolean("status")->default(true);;
+            $table->integer("company_id")->nullable();
             $table->datetime('created_at');
             $table->datetime('modified_at')->nullable();
         });

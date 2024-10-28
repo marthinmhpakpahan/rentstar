@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer("vehicle_category_id");
             $table->integer("company_id");
+            $table->string("name");
             $table->string("police_no");
             $table->boolean("insurance");
             $table->bigInteger("price");

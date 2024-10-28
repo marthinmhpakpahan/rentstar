@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class OrderController extends Controller
 {
     public function index() {
         //Tampilan index di dalam folder dashboard
-        return view('dashboard.index', [
-            "title" => "RentSTAR - Dashboard",
-            "page_title" => "Dashboard"
+        return view('order.index', [
+            "title" => "RentSTAR - Manage Transaksi"
         ]);
     }
 }

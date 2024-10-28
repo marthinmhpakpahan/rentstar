@@ -115,10 +115,17 @@ class UserController extends Controller
         return redirect('/login')->with('success', 'Berhasil mendaftarkan akun anda!');
     }
 
+    public function profile() {
+        return view('user.profile', [
+            "title" => "RentSTAR - Profile",
+            "page_title" => "Profil",
+        ]);
+    }
+
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/login');
     }
 }

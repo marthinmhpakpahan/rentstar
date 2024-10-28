@@ -20,4 +20,6 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <script src="../assets/js/jquery.min.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
 </head>
