@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -17,10 +19,26 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'full_name',
+        'username',
         'password',
+        'email',
+        'phone_no',
+        'photo',
+        'role_id',
+        'company_id',
+        'status'
     ];
+
+    protected $table = 'user';
+
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'modified_at';
+
+    public $timestamps = true;
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,7 +47,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -40,8 +57,15 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * The users that belong to the role.
+     */
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
     }
 }

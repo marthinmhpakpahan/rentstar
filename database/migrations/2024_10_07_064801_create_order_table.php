@@ -13,7 +13,22 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer("user_id");
+            $table->integer("mitra_id");
+            $table->integer("order_status_id");
+            $table->integer("vehicle_id");
+            $table->integer("driver_id")->nullable();
+            $table->string("invoice_path");
+            $table->string("payment_image_path");
+            $table->boolean("include_driver")->nullable();
+            $table->boolean("include_pickup")->nullable();
+            $table->text("pickup_address")->nullable();
+            $table->datetime("start_date");
+            $table->datetime("end_date");
+            $table->text("user_remarks")->nullable();
+            $table->text("admin_remarks")->nullable();
+            $table->datetime('created_at');
+            $table->datetime('modified_at')->nullable();
         });
     }
 
